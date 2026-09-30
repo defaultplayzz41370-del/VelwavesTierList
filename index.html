@@ -1,203 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velwaves Tier List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>Velwaves Tier List</title>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b0b0f;
-            color: white;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            text-align: center;
-            padding: 35px 15px;
-            background: #111118;
-            border-bottom: 1px solid #292934;
-        }
+body {
+    margin: 0;
+    background: #09090d;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 42px;
-            font-weight: 900;
-        }
+header {
+    text-align: center;
+    padding: 35px 15px;
+    background: #111117;
+    border-bottom: 1px solid #292933;
+}
 
-        header p {
-            margin-top: 8px;
-            color: #999;
-        }
+header h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 900;
+}
 
-        .container {
-            width: 95%;
-            max-width: 1100px;
-            margin: 30px auto;
-        }
+header p {
+    color: #888;
+    margin-top: 8px;
+}
 
-        .gamemode {
-            margin-bottom: 35px;
-        }
+.container {
+    width: 95%;
+    max-width: 1150px;
+    margin: 35px auto;
+}
 
-        .gamemode-title {
-            font-size: 26px;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
+.gamemode {
+    margin-bottom: 45px;
+}
 
-        .tier {
-            display: flex;
-            min-height: 80px;
-            margin-bottom: 8px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #15151d;
-            border: 1px solid #292934;
-        }
+.gamemode-title {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
 
-        .tier-name {
-            width: 100px;
-            min-width: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 900;
-        }
+.tier {
+    display: flex;
+    min-height: 75px;
+    margin-bottom: 7px;
+    background: #15151d;
+    border: 1px solid #292933;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-        .players {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            flex-wrap: wrap;
-        }
+.tier-name {
+    width: 100px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 900;
+}
 
-        .player {
-            background: #20202a;
-            border: 1px solid #343441;
-            border-radius: 8px;
-            padding: 12px 18px;
-            font-weight: 800;
-        }
+.players {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
 
-        .ht1 { background: #e53935; }
-        .lt1 { background: #ef5350; }
+.player {
+    padding: 12px 18px;
+    background: #20202a;
+    border: 1px solid #363642;
+    border-radius: 8px;
+    font-weight: 800;
+}
 
-        .ht2 { background: #ff8f00; }
-        .lt2 { background: #ffa726; }
+/* TIER COLORS */
 
-        .ht3 { background: #fdd835; color: #111; }
-        .lt3 { background: #ffee58; color: #111; }
+.ht1 {
+    background: #e53935;
+}
 
-        .ht4 { background: #43a047; }
-        .lt4 { background: #66bb6a; }
+.lt1 {
+    background: #ef5350;
+}
 
-        .ht5 { background: #1e88e5; }
-        .lt5 { background: #42a5f5; }
+.ht2 {
+    background: #f57c00;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 30px;
-            }
-
-            .tier-name {
-                width: 75px;
-                min-width: 75px;
-                font-size: 15px;
-            }
-
-            .player {
-                padding: 9px 12px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>Velwaves Tier List</h1>
-    <p>Minecraft PvP Rankings</p>
-</header>
-
-<div class="container">
-
-    <!-- SWORD -->
-    <div class="gamemode">
-        <div class="gamemode-title">⚔️ SWORD</div>
-
-        <div class="tier">
-            <div class="tier-name ht1">HT1</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name lt1">LT1</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name ht2">HT2</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name lt2">LT2</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name ht3">HT3</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name lt3">LT3</div>
-            <div class="players">
-                <div class="player">Krufiex</div>
-            </div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name ht4">HT4</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name lt4">LT4</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name ht5">HT5</div>
-            <div class="players"></div>
-        </div>
-
-        <div class="tier">
-            <div class="tier-name lt5">LT5</div>
-            <div class="players"></div>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    VelwavesTierList • Sword Rankings
-</footer>
-
-</body>
-</html>
+.lt2 {
+    background
