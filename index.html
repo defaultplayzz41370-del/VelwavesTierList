@@ -1,404 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VelwavesAS Tier List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velwaves Tier List</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0f;
-    color: white;
-    min-height: 100vh;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0b0f;
+            color: white;
+        }
 
-header {
-    padding: 35px 20px 20px;
-    text-align: center;
-}
+        header {
+            text-align: center;
+            padding: 35px 15px;
+            background: #111118;
+            border-bottom: 1px solid #292934;
+        }
 
-.logo {
-    font-size: 34px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 900;
+        }
 
-.logo span {
-    color: #8b5cf6;
-}
+        header p {
+            margin-top: 8px;
+            color: #999;
+        }
 
-.subtitle {
-    color: #888;
-    margin-top: 8px;
-}
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
 
-.container {
-    width: min(1100px, 94%);
-    margin: auto;
-}
+        .gamemode {
+            margin-bottom: 35px;
+        }
 
-.tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 25px 0;
-}
+        .gamemode-title {
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
 
-.tab {
-    background: #15151c;
-    border: 1px solid #292936;
-    color: #aaa;
-    padding: 11px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
+        .tier {
+            display: flex;
+            min-height: 80px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #15151d;
+            border: 1px solid #292934;
+        }
 
-.tab:hover,
-.tab.active {
-    background: #8b5cf6;
-    color: white;
-    border-color: #8b5cf6;
-}
+        .tier-name {
+            width: 100px;
+            min-width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+        }
 
-.search {
-    width: 100%;
-    background: #121219;
-    border: 1px solid #292936;
-    border-radius: 12px;
-    padding: 15px;
-    color: white;
-    outline: none;
-    margin-bottom: 20px;
-}
+        .players {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            flex-wrap: wrap;
+        }
 
-.search:focus {
-    border-color: #8b5cf6;
-}
+        .player {
+            background: #20202a;
+            border: 1px solid #343441;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-weight: 800;
+        }
 
-.mode-title {
-    font-size: 25px;
-    margin: 15px 0;
-}
+        .ht1 { background: #e53935; }
+        .lt1 { background: #ef5350; }
 
-.tier {
-    display: flex;
-    min-height: 75px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #121219;
-    border: 1px solid #22222c;
-}
+        .ht2 { background: #ff8f00; }
+        .lt2 { background: #ffa726; }
 
-.tier-name {
-    width: 90px;
-    min-width: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 800;
-}
+        .ht3 { background: #fdd835; color: #111; }
+        .lt3 { background: #ffee58; color: #111; }
 
-.ht2 { background: #e5b700; }
-.lt2 { background: #c99f00; }
-.ht3 { background: #4caf50; }
-.lt3 { background: #3d9140; }
-.ht4 { background: #2196f3; }
-.lt4 { background: #1976c9; }
-.ht5 { background: #9e9e9e; }
-.lt5 { background: #707070; }
+        .ht4 { background: #43a047; }
+        .lt4 { background: #66bb6a; }
 
-.players {
-    padding: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-}
+        .ht5 { background: #1e88e5; }
+        .lt5 { background: #42a5f5; }
 
-.player {
-    background: #1c1c26;
-    border: 1px solid #30303d;
-    border-radius: 8px;
-    padding: 9px 13px;
-    color: #ddd;
-}
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
 
-.empty {
-    color: #555;
-}
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
 
-footer {
-    text-align: center;
-    color: #555;
-    padding: 40px 10px;
-    margin-top: 30px;
-}
+            .tier-name {
+                width: 75px;
+                min-width: 75px;
+                font-size: 15px;
+            }
 
-@media (max-width: 600px) {
-    .logo {
-        font-size: 27px;
-    }
-
-    .tier-name {
-        width: 70px;
-        min-width: 70px;
-        font-size: 16px;
-    }
-
-    .players {
-        padding: 10px;
-    }
-}
-</style>
+            .player {
+                padding: 9px 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">Velwaves<span>AS</span></div>
-    <div class="subtitle">Minecraft PvP Tier List</div>
+    <h1>Velwaves Tier List</h1>
+    <p>Minecraft PvP Rankings</p>
 </header>
 
 <div class="container">
 
-    <div class="tabs">
-        <button class="tab active" onclick="changeMode('Sword', this)">⚔️ Sword</button>
-        <button class="tab" onclick="changeMode('Axe', this)">🪓 Axe</button>
-        <button class="tab" onclick="changeMode('Mace', this)">🔨 Mace</button>
-        <button class="tab" onclick="changeMode('Spear Mace', this)">🔱 Spear Mace</button>
-        <button class="tab" onclick="changeMode('UHC', this)">🏹 UHC</button>
-        <button class="tab" onclick="changeMode('NethPot', this)">🧪 NethPot</button>
-        <button class="tab" onclick="changeMode('DiaPot', this)">🧪 DiaPot</button>
+    <!-- SWORD -->
+    <div class="gamemode">
+        <div class="gamemode-title">⚔️ SWORD</div>
+
+        <div class="tier">
+            <div class="tier-name ht1">HT1</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name lt1">LT1</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name ht2">HT2</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name lt2">LT2</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name ht3">HT3</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name lt3">LT3</div>
+            <div class="players">
+                <div class="player">Krufiex</div>
+            </div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name ht4">HT4</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name lt4">LT4</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name ht5">HT5</div>
+            <div class="players"></div>
+        </div>
+
+        <div class="tier">
+            <div class="tier-name lt5">LT5</div>
+            <div class="players"></div>
+        </div>
     </div>
-
-    <input
-        class="search"
-        id="search"
-        type="text"
-        placeholder="Search player..."
-        oninput="render()"
-    >
-
-    <h2 class="mode-title" id="modeTitle">⚔️ Sword</h2>
-
-    <div id="tierList"></div>
 
 </div>
 
 <footer>
-    VelwavesAS • Minecraft PvP Tier List
+    VelwavesTierList • Sword Rankings
 </footer>
-
-<script>
-
-let currentMode = "Sword";
-
-/*
-    ADD PLAYERS HERE
-
-    Example:
-
-    Sword: {
-        HT2: ["Player1"],
-        LT2: ["Player2"],
-        HT3: ["Player3"]
-    }
-*/
-
-const players = {
-
-    Sword: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    Axe: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    Mace: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    "Spear Mace": {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    UHC: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    NethPot: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    },
-
-    DiaPot: {
-        HT2: [],
-        LT2: [],
-        HT3: [],
-        LT3: [],
-        HT4: [],
-        LT4: [],
-        HT5: [],
-        LT5: []
-    }
-};
-
-const tierClass = {
-    HT2: "ht2",
-    LT2: "lt2",
-    HT3: "ht3",
-    LT3: "lt3",
-    HT4: "ht4",
-    LT4: "lt4",
-    HT5: "ht5",
-    LT5: "lt5"
-};
-
-function changeMode(mode, button) {
-
-    currentMode = mode;
-
-    document.querySelectorAll(".tab").forEach(tab => {
-        tab.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    render();
-}
-
-function render() {
-
-    const list = document.getElementById("tierList");
-    const title = document.getElementById("modeTitle");
-    const search = document.getElementById("search").value.toLowerCase();
-
-    title.textContent =
-        currentMode === "Sword" ? "⚔️ Sword" :
-        currentMode === "Axe" ? "🪓 Axe" :
-        currentMode === "Mace" ? "🔨 Mace" :
-        currentMode === "Spear Mace" ? "🔱 Spear Mace" :
-        currentMode === "UHC" ? "🏹 UHC" :
-        currentMode === "NethPot" ? "🧪 NethPot" :
-        "🧪 DiaPot";
-
-    list.innerHTML = "";
-
-    const tiers = [
-        "HT2",
-        "LT2",
-        "HT3",
-        "LT3",
-        "HT4",
-        "LT4",
-        "HT5",
-        "LT5"
-    ];
-
-    tiers.forEach(tier => {
-
-        const tierDiv = document.createElement("div");
-        tierDiv.className = "tier";
-
-        const tierName = document.createElement("div");
-        tierName.className = "tier-name " + tierClass[tier];
-        tierName.textContent = tier;
-
-        const playerDiv = document.createElement("div");
-        playerDiv.className = "players";
-
-        const modePlayers = players[currentMode][tier] || [];
-
-        const filtered = modePlayers.filter(player =>
-            player.toLowerCase().includes(search)
-        );
-
-        if (filtered.length === 0) {
-
-            const empty = document.createElement("span");
-            empty.className = "empty";
-            empty.textContent = search ? "No players found" : "No players yet";
-
-            playerDiv.appendChild(empty);
-
-        } else {
-
-            filtered.forEach(player => {
-
-                const playerElement = document.createElement("div");
-
-                playerElement.className = "player";
-                playerElement.textContent = player;
-
-                playerDiv.appendChild(playerElement);
-
-            });
-
-        }
-
-        tierDiv.appendChild(tierName);
-        tierDiv.appendChild(playerDiv);
-
-        list.appendChild(tierDiv);
-    });
-}
-
-render();
-
-</script>
 
 </body>
 </html>
