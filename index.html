@@ -3,418 +3,364 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>VelwavesTierList</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#07070a;
-    color:#fff;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07070a;
+    color: white;
 }
 
 /* NAVBAR */
 
-header{
-    height:70px;
-    background:#0c0c11;
-    border-bottom:1px solid #24242d;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 7%;
-    position:sticky;
-    top:0;
-    z-index:100;
+header {
+    height: 70px;
+    background: #0c0c11;
+    border-bottom: 1px solid #24242d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:900;
+.logo {
+    font-size: 22px;
+    font-weight: 900;
 }
 
-.logo span{
-    color:#8b5cf6;
+.logo span {
+    color: #8b5cf6;
 }
 
-nav{
-    display:flex;
-    gap:25px;
+nav {
+    display: flex;
+    gap: 25px;
 }
 
-nav button{
-    background:none;
-    border:none;
-    color:#999;
-    cursor:pointer;
-    font-weight:700;
+nav button {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-weight: 700;
 }
 
-nav button:hover{
-    color:white;
+nav button:hover {
+    color: white;
 }
 
 /* HERO */
 
-.hero{
-    text-align:center;
-    padding:80px 20px 50px;
-
+.hero {
+    text-align: center;
+    padding: 80px 20px 50px;
     background:
-    radial-gradient(
-        circle at center,
-        rgba(139,92,246,.18),
-        transparent 55%
-    );
+        radial-gradient(
+            circle at center,
+            rgba(139,92,246,.18),
+            transparent 55%
+        );
 }
 
-.hero h1{
-    font-size:55px;
-    font-weight:1000;
+.hero h1 {
+    font-size: 55px;
+    font-weight: 1000;
 }
 
-.hero h1 span{
-    color:#8b5cf6;
+.hero h1 span {
+    color: #8b5cf6;
 }
 
-.hero p{
-    color:#8c8c96;
-    margin-top:12px;
-    font-size:16px;
+.hero p {
+    color: #8c8c96;
+    margin-top: 12px;
+    font-size: 16px;
 }
 
 /* SEARCH */
 
-.searchBox{
-    max-width:900px;
-    margin:0 auto 30px;
-    padding:0 20px;
+.searchBox {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
 }
 
-.search{
-    width:100%;
-
-    background:#101016;
-
-    border:1px solid #2a2a35;
-
-    border-radius:12px;
-
-    padding:17px;
-
-    color:white;
-
-    outline:none;
-
-    font-size:15px;
+.search {
+    width: 100%;
+    background: #101016;
+    border: 1px solid #2a2a35;
+    border-radius: 12px;
+    padding: 17px;
+    color: white;
+    outline: none;
+    font-size: 15px;
 }
 
-.search:focus{
-    border-color:#8b5cf6;
+.search:focus {
+    border-color: #8b5cf6;
 }
 
-/* GAME MODES */
+/* GAMEMODES */
 
-.modes{
-    max-width:1100px;
-    margin:auto;
-
-    padding:0 20px 30px;
-
-    display:flex;
-    flex-wrap:wrap;
-
-    gap:9px;
+.modes {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
 }
 
-.mode{
-    background:#111117;
-
-    border:1px solid #292933;
-
-    color:#aaa;
-
-    padding:11px 16px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    font-weight:800;
-
-    transition:.15s;
+.mode {
+    background: #111117;
+    border: 1px solid #292933;
+    color: #aaa;
+    padding: 11px 16px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: .15s;
 }
 
-.mode:hover{
-    border-color:#8b5cf6;
-    color:white;
+.mode:hover {
+    border-color: #8b5cf6;
+    color: white;
 }
 
-.mode.active{
-    background:#8b5cf6;
-    color:white;
-    border-color:#8b5cf6;
+.mode.active {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
 }
 
 /* MAIN */
 
-.container{
-    max-width:1100px;
-    margin:auto;
-
-    padding:0 20px 80px;
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 80px;
 }
 
-.title{
-    font-size:27px;
-    margin-bottom:18px;
+.title {
+    font-size: 27px;
+    margin-bottom: 18px;
 }
 
-/* TIER */
+/* TIERS */
 
-.tier{
-    display:flex;
-
-    min-height:76px;
-
-    margin-bottom:8px;
-
-    background:#101015;
-
-    border:1px solid #292933;
-
-    border-radius:9px;
-
-    overflow:hidden;
+.tier {
+    display: flex;
+    min-height: 76px;
+    margin-bottom: 8px;
+    background: #101015;
+    border: 1px solid #292933;
+    border-radius: 9px;
+    overflow: hidden;
 }
 
-.tierName{
-    width:90px;
-    min-width:90px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-weight:1000;
+.tierName {
+    width: 90px;
+    min-width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 1000;
 }
 
-.players{
-    padding:12px;
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    align-items:center;
-
-    gap:9px;
+.players {
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
 }
 
-.player{
-    background:#191920;
-
-    border:1px solid #30303b;
-
-    padding:10px 14px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-weight:800;
-
-    transition:.15s;
+.player {
+    background: #191920;
+    border: 1px solid #30303b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+    transition: .15s;
 }
 
-.player:hover{
-    border-color:#8b5cf6;
-
-    transform:translateY(-2px);
-
-    box-shadow:0 5px 20px rgba(139,92,246,.15);
+.player:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(139,92,246,.15);
 }
 
 /* TIER COLORS */
 
-.ht1{background:#ff3030;}
-.lt1{background:#ff6666;}
+.ht1 {
+    background: #ff3030;
+}
 
-.ht2{background:#ff8300;}
-.lt2{background:#ffa83d;}
+.lt1 {
+    background: #ff6666;
+}
 
-.ht3{background:#ffd000;color:#111;}
-.lt3{background:#ffe477;color:#111;}
+.ht2 {
+    background: #ff8300;
+}
 
-.ht4{background:#48b94b;}
-.lt4{background:#70d970;}
+.lt2 {
+    background: #ffa83d;
+}
 
-.ht5{background:#208eea;}
-.lt5{background:#61b3f5;}
+.ht3 {
+    background: #ffd000;
+    color: #111;
+}
+
+.lt3 {
+    background: #ffe477;
+    color: #111;
+}
+
+.ht4 {
+    background: #48b94b;
+}
+
+.lt4 {
+    background: #70d970;
+}
+
+.ht5 {
+    background: #208eea;
+}
+
+.lt5 {
+    background: #61b3f5;
+}
 
 /* PROFILE MODAL */
 
-.modal{
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.75);
-
-    backdrop-filter:blur(7px);
-
-    z-index:500;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(7px);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.profile{
-    width:100%;
-    max-width:500px;
-
-    background:#101016;
-
-    border:1px solid #30303a;
-
-    border-radius:16px;
-
-    padding:30px;
-
-    box-shadow:0 20px 80px rgba(0,0,0,.6);
+.profile {
+    width: 100%;
+    max-width: 500px;
+    background: #101016;
+    border: 1px solid #30303a;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 20px 80px rgba(0,0,0,.6);
 }
 
-.profileTop{
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin-bottom:25px;
+.profileTop {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
 }
 
-.avatar{
-    width:70px;
-    height:70px;
-
-    border-radius:12px;
-
-    background:#8b5cf6;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:28px;
-
-    font-weight:1000;
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    background: #8b5cf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 1000;
 }
 
-.profile h2{
-    font-size:25px;
+.profile h2 {
+    font-size: 25px;
 }
 
-.profile p{
-    color:#888;
-
-    margin-top:5px;
+.profile p {
+    color: #888;
+    margin-top: 5px;
 }
 
-.results{
-    display:flex;
-    flex-direction:column;
-
-    gap:8px;
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.result{
-    background:#18181f;
-
-    border:1px solid #292933;
-
-    padding:13px;
-
-    border-radius:9px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
+.result {
+    background: #18181f;
+    border: 1px solid #292933;
+    padding: 13px;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.close{
-    width:100%;
+.resultTier {
+    font-weight: 900;
+}
 
-    margin-top:20px;
-
-    padding:13px;
-
-    border:none;
-
-    border-radius:9px;
-
-    background:#8b5cf6;
-
-    color:white;
-
-    font-weight:900;
-
-    cursor:pointer;
+.close {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #8b5cf6;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 /* FOOTER */
 
-footer{
-    border-top:1px solid #22222b;
-
-    text-align:center;
-
-    padding:30px;
-
-    color:#666;
+footer {
+    border-top: 1px solid #22222b;
+    text-align: center;
+    padding: 30px;
+    color: #666;
 }
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:600px) {
 
-    header{
-        padding:0 20px;
+    header {
+        padding: 0 20px;
     }
 
-    nav{
-        display:none;
+    nav {
+        display: none;
     }
 
-    .hero h1{
-        font-size:38px;
+    .hero h1 {
+        font-size: 38px;
     }
 
-    .tierName{
-        width:65px;
-        min-width:65px;
-        font-size:13px;
+    .tierName {
+        width: 65px;
+        min-width: 65px;
+        font-size: 13px;
     }
 
 }
-
 </style>
 </head>
 
@@ -452,6 +398,7 @@ footer{
     <input
         id="search"
         class="search"
+        type="text"
         placeholder="Search for a player..."
         oninput="searchPlayer()"
     >
@@ -461,35 +408,35 @@ footer{
 
 <div class="modes">
 
-    <button class="mode active" onclick="changeMode('Sword',this)">
+    <button class="mode active" onclick="changeMode('Sword', this)">
         ⚔️ Sword
     </button>
 
-    <button class="mode" onclick="changeMode('Axe',this)">
+    <button class="mode" onclick="changeMode('Axe', this)">
         🪓 Axe
     </button>
 
-    <button class="mode" onclick="changeMode('Crystal',this)">
+    <button class="mode" onclick="changeMode('Crystal', this)">
         💎 Crystal
     </button>
 
-    <button class="mode" onclick="changeMode('UHC',this)">
+    <button class="mode" onclick="changeMode('UHC', this)">
         🏹 UHC
     </button>
 
-    <button class="mode" onclick="changeMode('NethPot',this)">
+    <button class="mode" onclick="changeMode('NethPot', this)">
         🧪 NethPot
     </button>
 
-    <button class="mode" onclick="changeMode('DiaPot',this)">
+    <button class="mode" onclick="changeMode('DiaPot', this)">
         🛡️ DiaPot
     </button>
 
-    <button class="mode" onclick="changeMode('Spear',this)">
+    <button class="mode" onclick="changeMode('Spear', this)">
         🔱 Spear
     </button>
 
-    <button class="mode" onclick="changeMode('Mace',this)">
+    <button class="mode" onclick="changeMode('Mace', this)">
         🔨 Mace
     </button>
 
@@ -508,13 +455,11 @@ footer{
 
 
 <footer>
-
     © 2026 VelwavesTierList
-
 </footer>
 
 
-<!-- PROFILE -->
+<!-- PLAYER PROFILE -->
 
 <div class="modal" id="modal">
 
@@ -540,14 +485,9 @@ footer{
 
         </div>
 
-
         <div class="results" id="results"></div>
 
-
-        <button
-            class="close"
-            onclick="closeProfile()"
-        >
+        <button class="close" onclick="closeProfile()">
             Close
         </button>
 
@@ -563,17 +503,22 @@ footer{
 PLAYER DATABASE
 ==================================================
 
-Add players here.
+ADD PLAYERS HERE.
 
 Example:
 
 {
-    name:"Example",
-    results:{
-        Sword:"LT3",
-        Axe:"HT4"
+    name: "PlayerName",
+
+    results: {
+        Sword: "HT3",
+        Axe: "LT2",
+        Mace: "HT4"
     }
 }
+
+The website automatically puts the player
+inside the correct tier.
 
 ==================================================
 */
@@ -581,12 +526,26 @@ Example:
 const players = [
 
     {
-        name:"Krufiex",
+        name: "Krufiex",
 
-        results:{
-            Sword:"LT3"
+        results: {
+            Sword: "LT3"
         }
+    },
 
+    {
+        name: "Player2",
+
+        results: {
+            Sword: "HT3",
+            Axe: "LT2",
+            Crystal: "HT4",
+            UHC: "LT3",
+            NethPot: "HT2",
+            DiaPot: "HT3",
+            Spear: "LT4",
+            Mace: "HT2"
+        }
     }
 
 ];
@@ -594,7 +553,7 @@ const players = [
 
 /*
 ==================================================
-SETTINGS
+GAME MODES
 ==================================================
 */
 
@@ -609,6 +568,13 @@ const modes = [
     "Mace"
 ];
 
+
+/*
+==================================================
+TIERS
+==================================================
+*/
+
 const tiers = [
     "HT1",
     "LT1",
@@ -622,6 +588,7 @@ const tiers = [
     "LT5"
 ];
 
+
 let currentMode = "Sword";
 
 
@@ -631,71 +598,69 @@ RENDER TIER LIST
 ==================================================
 */
 
-function render(){
+function render() {
 
     const container =
         document.getElementById("tiers");
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
 
-    tiers.forEach(tier=>{
+    tiers.forEach(tier => {
 
         const row =
             document.createElement("div");
 
-        row.className="tier";
+        row.className = "tier";
 
 
         const tierName =
             document.createElement("div");
 
         tierName.className =
-            "tierName "+tier.toLowerCase();
+            "tierName " + tier.toLowerCase();
 
-        tierName.textContent=tier;
+        tierName.textContent = tier;
 
 
         const playerContainer =
             document.createElement("div");
 
-        playerContainer.className="players";
+        playerContainer.className = "players";
 
 
         const matchingPlayers =
-            players.filter(player=>{
+            players.filter(player => {
 
                 return player.results[currentMode] === tier;
 
             });
 
 
-        if(matchingPlayers.length===0){
+        if (matchingPlayers.length === 0) {
 
             const empty =
                 document.createElement("span");
 
-            empty.style.color="#555";
+            empty.style.color = "#555";
 
-            empty.textContent="No players";
+            empty.textContent = "No players";
 
             playerContainer.appendChild(empty);
 
-        }else{
+        } else {
 
-            matchingPlayers.forEach(player=>{
+            matchingPlayers.forEach(player => {
 
                 const element =
                     document.createElement("div");
 
-                element.className="player";
+                element.className = "player";
 
-                element.textContent=player.name;
+                element.textContent = player.name;
 
-                element.onclick=()=>{
-
+                element.onclick = () => {
                     openProfile(player);
-
                 };
 
                 playerContainer.appendChild(element);
@@ -722,22 +687,24 @@ CHANGE GAMEMODE
 ==================================================
 */
 
-function changeMode(mode,button){
+function changeMode(mode, button) {
 
-    currentMode=mode;
+    currentMode = mode;
+
 
     document
         .querySelectorAll(".mode")
-        .forEach(btn=>{
+        .forEach(btn => {
             btn.classList.remove("active");
         });
+
 
     button.classList.add("active");
 
 
     document.getElementById("title")
         .textContent =
-        "🏆 "+mode+" Rankings";
+        "🏆 " + mode + " Rankings";
 
 
     render();
@@ -749,11 +716,11 @@ function changeMode(mode,button){
 
 /*
 ==================================================
-SEARCH
+SEARCH PLAYER
 ==================================================
 */
 
-function searchPlayer(){
+function searchPlayer() {
 
     const query =
         document
@@ -764,19 +731,18 @@ function searchPlayer(){
 
     document
         .querySelectorAll(".player")
-        .forEach(player=>{
+        .forEach(player => {
 
-            if(
-                player.textContent
-                .toLowerCase()
-                .includes(query)
-            ){
+            const name =
+                player.textContent.toLowerCase();
 
-                player.style.display="block";
+            if (name.includes(query)) {
 
-            }else{
+                player.style.display = "block";
 
-                player.style.display="none";
+            } else {
+
+                player.style.display = "none";
 
             }
 
@@ -787,56 +753,60 @@ function searchPlayer(){
 
 /*
 ==================================================
-PROFILE
+OPEN PROFILE
 ==================================================
 */
 
-function openProfile(player){
+function openProfile(player) {
 
     document.getElementById("modal")
-        .style.display="flex";
+        .style.display = "flex";
 
 
     document.getElementById("profileName")
-        .textContent=player.name;
+        .textContent = player.name;
 
 
     document.getElementById("avatar")
-        .textContent=
+        .textContent =
         player.name.charAt(0).toUpperCase();
 
 
     const results =
         document.getElementById("results");
 
-    results.innerHTML="";
+    results.innerHTML = "";
 
 
-    modes.forEach(mode=>{
+    modes.forEach(mode => {
 
         const tier =
             player.results[mode];
 
 
-        if(!tier) return;
+        if (!tier) {
+            return;
+        }
 
 
         const result =
             document.createElement("div");
 
-        result.className="result";
+        result.className = "result";
 
 
         const modeName =
             document.createElement("span");
 
-        modeName.textContent=mode;
+        modeName.textContent = mode;
 
 
         const tierElement =
             document.createElement("strong");
 
-        tierElement.textContent=tier;
+        tierElement.className = "resultTier";
+
+        tierElement.textContent = tier;
 
 
         result.appendChild(modeName);
@@ -850,10 +820,16 @@ function openProfile(player){
 }
 
 
-function closeProfile(){
+/*
+==================================================
+CLOSE PROFILE
+==================================================
+*/
+
+function closeProfile() {
 
     document.getElementById("modal")
-        .style.display="none";
+        .style.display = "none";
 
 }
 
@@ -864,7 +840,7 @@ NAVIGATION
 ==================================================
 */
 
-function focusSearch(){
+function focusSearch() {
 
     document
         .getElementById("search")
@@ -872,11 +848,12 @@ function focusSearch(){
 
 }
 
-function scrollTopPage(){
+
+function scrollTopPage() {
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -884,7 +861,23 @@ function scrollTopPage(){
 
 /*
 ==================================================
-START
+CLOSE MODAL WHEN CLICKING OUTSIDE
+==================================================
+*/
+
+document.getElementById("modal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeProfile();
+        }
+
+    });
+
+
+/*
+==================================================
+START WEBSITE
 ==================================================
 */
 
