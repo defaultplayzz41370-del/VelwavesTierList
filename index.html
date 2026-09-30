@@ -3,376 +3,613 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>VelwavesTierList</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #08080b;
-    color: white;
-    min-height: 100vh;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07070a;
+    color:#fff;
 }
 
-header {
-    background: #0e0e13;
-    border-bottom: 1px solid #25252d;
-    padding: 22px 35px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* NAVBAR */
+
+header{
+    height:70px;
+    background:#0c0c11;
+    border-bottom:1px solid #24242d;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: 800;
+.logo{
+    font-size:22px;
+    font-weight:900;
 }
 
-.logo span {
-    color: #8b5cf6;
+.logo span{
+    color:#8b5cf6;
 }
 
-nav a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 600;
+nav{
+    display:flex;
+    gap:25px;
 }
 
-nav a:hover {
-    color: white;
+nav button{
+    background:none;
+    border:none;
+    color:#999;
+    cursor:pointer;
+    font-weight:700;
 }
 
-.hero {
-    text-align: center;
-    padding: 55px 20px 35px;
+nav button:hover{
+    color:white;
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-weight: 900;
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:80px 20px 50px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(139,92,246,.18),
+        transparent 55%
+    );
 }
 
-.hero h1 span {
-    color: #8b5cf6;
+.hero h1{
+    font-size:55px;
+    font-weight:1000;
 }
 
-.hero p {
-    color: #999;
-    margin-top: 10px;
+.hero h1 span{
+    color:#8b5cf6;
 }
 
-.controls {
-    max-width: 1100px;
-    margin: 0 auto 30px;
-    padding: 0 20px;
+.hero p{
+    color:#8c8c96;
+    margin-top:12px;
+    font-size:16px;
 }
 
-.search {
-    width: 100%;
-    background: #111117;
-    border: 1px solid #292933;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    outline: none;
-    font-size: 15px;
-    margin-bottom: 15px;
+/* SEARCH */
+
+.searchBox{
+    max-width:900px;
+    margin:0 auto 30px;
+    padding:0 20px;
 }
 
-.gamemodes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.search{
+    width:100%;
+
+    background:#101016;
+
+    border:1px solid #2a2a35;
+
+    border-radius:12px;
+
+    padding:17px;
+
+    color:white;
+
+    outline:none;
+
+    font-size:15px;
 }
 
-.gamemodes button {
-    background: #121218;
-    color: #aaa;
-    border: 1px solid #292933;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
+.search:focus{
+    border-color:#8b5cf6;
 }
 
-.gamemodes button:hover,
-.gamemodes button.active {
-    background: #8b5cf6;
-    color: white;
-    border-color: #8b5cf6;
+/* GAME MODES */
+
+.modes{
+    max-width:1100px;
+    margin:auto;
+
+    padding:0 20px 30px;
+
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:9px;
 }
 
-.tier-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px 60px;
+.mode{
+    background:#111117;
+
+    border:1px solid #292933;
+
+    color:#aaa;
+
+    padding:11px 16px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    transition:.15s;
 }
 
-.mode-title {
-    font-size: 26px;
-    margin-bottom: 15px;
+.mode:hover{
+    border-color:#8b5cf6;
+    color:white;
 }
 
-.tier {
-    display: flex;
-    min-height: 75px;
-    margin-bottom: 8px;
-    border: 1px solid #292933;
-    background: #101015;
-    border-radius: 8px;
-    overflow: hidden;
+.mode.active{
+    background:#8b5cf6;
+    color:white;
+    border-color:#8b5cf6;
 }
 
-.tier-name {
-    width: 90px;
-    min-width: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 17px;
-    color: white;
+/* MAIN */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+
+    padding:0 20px 80px;
 }
 
-.ht1 { background: #ff3b3b; }
-.lt1 { background: #ff6666; }
-.ht2 { background: #ff8a00; }
-.lt2 { background: #ffad42; }
-.ht3 { background: #ffd000; color: #111; }
-.lt3 { background: #ffe066; color: #111; }
-.ht4 { background: #4caf50; }
-.lt4 { background: #72d572; }
-.ht5 { background: #2196f3; }
-.lt5 { background: #64b5f6; }
-
-.players {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 9px;
-    padding: 12px;
+.title{
+    font-size:27px;
+    margin-bottom:18px;
 }
 
-.player {
-    background: #19191f;
-    border: 1px solid #30303a;
-    padding: 9px 13px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: .15s;
+/* TIER */
+
+.tier{
+    display:flex;
+
+    min-height:76px;
+
+    margin-bottom:8px;
+
+    background:#101015;
+
+    border:1px solid #292933;
+
+    border-radius:9px;
+
+    overflow:hidden;
 }
 
-.player:hover {
-    border-color: #8b5cf6;
-    transform: translateY(-2px);
+.tierName{
+    width:90px;
+    min-width:90px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-weight:1000;
 }
 
-.empty {
-    color: #555;
-    font-size: 14px;
+.players{
+    padding:12px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:9px;
 }
 
-footer {
-    border-top: 1px solid #25252d;
-    text-align: center;
-    padding: 25px;
-    color: #666;
+.player{
+    background:#191920;
+
+    border:1px solid #30303b;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    transition:.15s;
 }
 
-@media(max-width:600px) {
-    header {
-        padding: 18px;
+.player:hover{
+    border-color:#8b5cf6;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 5px 20px rgba(139,92,246,.15);
+}
+
+/* TIER COLORS */
+
+.ht1{background:#ff3030;}
+.lt1{background:#ff6666;}
+
+.ht2{background:#ff8300;}
+.lt2{background:#ffa83d;}
+
+.ht3{background:#ffd000;color:#111;}
+.lt3{background:#ffe477;color:#111;}
+
+.ht4{background:#48b94b;}
+.lt4{background:#70d970;}
+
+.ht5{background:#208eea;}
+.lt5{background:#61b3f5;}
+
+/* PROFILE MODAL */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(7px);
+
+    z-index:500;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.profile{
+    width:100%;
+    max-width:500px;
+
+    background:#101016;
+
+    border:1px solid #30303a;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:0 20px 80px rgba(0,0,0,.6);
+}
+
+.profileTop{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+}
+
+.avatar{
+    width:70px;
+    height:70px;
+
+    border-radius:12px;
+
+    background:#8b5cf6;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    font-weight:1000;
+}
+
+.profile h2{
+    font-size:25px;
+}
+
+.profile p{
+    color:#888;
+
+    margin-top:5px;
+}
+
+.results{
+    display:flex;
+    flex-direction:column;
+
+    gap:8px;
+}
+
+.result{
+    background:#18181f;
+
+    border:1px solid #292933;
+
+    padding:13px;
+
+    border-radius:9px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.close{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:#8b5cf6;
+
+    color:white;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #22222b;
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#666;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        padding:0 20px;
     }
 
-    nav {
-        display: none;
+    nav{
+        display:none;
     }
 
-    .hero h1 {
-        font-size: 36px;
+    .hero h1{
+        font-size:38px;
     }
 
-    .tier-name {
-        width: 65px;
-        min-width: 65px;
-        font-size: 13px;
+    .tierName{
+        width:65px;
+        min-width:65px;
+        font-size:13px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">Velwaves<span>TierList</span></div>
+
+    <div class="logo">
+        Velwaves<span>TierList</span>
+    </div>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Rankings</a>
-        <a href="#">Players</a>
+        <button onclick="scrollTopPage()">Home</button>
+        <button onclick="focusSearch()">Players</button>
     </nav>
+
 </header>
 
+
 <section class="hero">
-    <h1>Velwaves<span>TierList</span></h1>
-    <p>Minecraft PvP Rankings</p>
+
+    <h1>
+        Velwaves<span>TierList</span>
+    </h1>
+
+    <p>
+        Minecraft PvP Rankings
+    </p>
+
 </section>
 
-<section class="controls">
+
+<div class="searchBox">
 
     <input
-        class="search"
         id="search"
-        type="text"
-        placeholder="Search player..."
+        class="search"
+        placeholder="Search for a player..."
         oninput="searchPlayer()"
     >
 
-    <div class="gamemodes">
-        <button class="active" onclick="changeMode('Sword', this)">⚔️ Sword</button>
-        <button onclick="changeMode('Axe', this)">🪓 Axe</button>
-        <button onclick="changeMode('Crystal', this)">💎 Crystal</button>
-        <button onclick="changeMode('UHC', this)">🏹 UHC</button>
-        <button onclick="changeMode('NethPot', this)">🧪 NethPot</button>
-        <button onclick="changeMode('DiaPot', this)">🛡️ DiaPot</button>
-        <button onclick="changeMode('Spear', this)">🔱 Spear</button>
-        <button onclick="changeMode('Mace', this)">🔨 Mace</button>
-    </div>
+</div>
 
-</section>
 
-<main class="tier-container">
+<div class="modes">
 
-    <h2 class="mode-title" id="modeTitle">⚔️ Sword</h2>
+    <button class="mode active" onclick="changeMode('Sword',this)">
+        ⚔️ Sword
+    </button>
+
+    <button class="mode" onclick="changeMode('Axe',this)">
+        🪓 Axe
+    </button>
+
+    <button class="mode" onclick="changeMode('Crystal',this)">
+        💎 Crystal
+    </button>
+
+    <button class="mode" onclick="changeMode('UHC',this)">
+        🏹 UHC
+    </button>
+
+    <button class="mode" onclick="changeMode('NethPot',this)">
+        🧪 NethPot
+    </button>
+
+    <button class="mode" onclick="changeMode('DiaPot',this)">
+        🛡️ DiaPot
+    </button>
+
+    <button class="mode" onclick="changeMode('Spear',this)">
+        🔱 Spear
+    </button>
+
+    <button class="mode" onclick="changeMode('Mace',this)">
+        🔨 Mace
+    </button>
+
+</div>
+
+
+<main class="container">
+
+    <h2 class="title" id="title">
+        ⚔️ Sword Rankings
+    </h2>
 
     <div id="tiers"></div>
 
 </main>
 
+
 <footer>
+
     © 2026 VelwavesTierList
+
 </footer>
+
+
+<!-- PROFILE -->
+
+<div class="modal" id="modal">
+
+    <div class="profile">
+
+        <div class="profileTop">
+
+            <div class="avatar" id="avatar">
+                K
+            </div>
+
+            <div>
+
+                <h2 id="profileName">
+                    Player
+                </h2>
+
+                <p>
+                    VelwavesTierList Player
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="results" id="results"></div>
+
+
+        <button
+            class="close"
+            onclick="closeProfile()"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
+
 
 <script>
 
-const data = {
+/*
+==================================================
+PLAYER DATABASE
+==================================================
 
-Sword: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: ["Krufiex"],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
+Add players here.
 
-Axe: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
+Example:
 
-Crystal: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
-
-UHC: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
-
-NethPot: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
-
-DiaPot: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
-
-Spear: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
-},
-
-Mace: {
-    HT1: [],
-    LT1: [],
-    HT2: [],
-    LT2: [],
-    HT3: [],
-    LT3: [],
-    HT4: [],
-    LT4: [],
-    HT5: [],
-    LT5: []
+{
+    name:"Example",
+    results:{
+        Sword:"LT3",
+        Axe:"HT4"
+    }
 }
 
-};
+==================================================
+*/
 
-let currentMode = "Sword";
+const players = [
 
-const tierOrder = [
+    {
+        name:"Krufiex",
+
+        results:{
+            Sword:"LT3"
+        }
+
+    }
+
+];
+
+
+/*
+==================================================
+SETTINGS
+==================================================
+*/
+
+const modes = [
+    "Sword",
+    "Axe",
+    "Crystal",
+    "UHC",
+    "NethPot",
+    "DiaPot",
+    "Spear",
+    "Mace"
+];
+
+const tiers = [
     "HT1",
     "LT1",
     "HT2",
@@ -385,59 +622,92 @@ const tierOrder = [
     "LT5"
 ];
 
-function render() {
+let currentMode = "Sword";
 
-    const container = document.getElementById("tiers");
 
-    container.innerHTML = "";
+/*
+==================================================
+RENDER TIER LIST
+==================================================
+*/
 
-    tierOrder.forEach(tier => {
+function render(){
 
-        const row = document.createElement("div");
-        row.className = "tier";
+    const container =
+        document.getElementById("tiers");
 
-        const name = document.createElement("div");
-        name.className = "tier-name " + tier.toLowerCase();
-        name.textContent = tier;
+    container.innerHTML="";
 
-        const players = document.createElement("div");
-        players.className = "players";
 
-        if(data[currentMode][tier].length === 0) {
+    tiers.forEach(tier=>{
 
-            const empty = document.createElement("span");
-            empty.className = "empty";
-            empty.textContent = "No players";
-            players.appendChild(empty);
+        const row =
+            document.createElement("div");
 
-        } else {
+        row.className="tier";
 
-            data[currentMode][tier].forEach(player => {
 
-                const playerElement = document.createElement("div");
+        const tierName =
+            document.createElement("div");
 
-                playerElement.className = "player";
+        tierName.className =
+            "tierName "+tier.toLowerCase();
 
-                playerElement.textContent = player;
+        tierName.textContent=tier;
 
-                playerElement.onclick = () => {
 
-                    alert(
-                        "Player: " + player +
-                        "\\nGamemode: " + currentMode +
-                        "\\nTier: " + tier
-                    );
+        const playerContainer =
+            document.createElement("div");
+
+        playerContainer.className="players";
+
+
+        const matchingPlayers =
+            players.filter(player=>{
+
+                return player.results[currentMode] === tier;
+
+            });
+
+
+        if(matchingPlayers.length===0){
+
+            const empty =
+                document.createElement("span");
+
+            empty.style.color="#555";
+
+            empty.textContent="No players";
+
+            playerContainer.appendChild(empty);
+
+        }else{
+
+            matchingPlayers.forEach(player=>{
+
+                const element =
+                    document.createElement("div");
+
+                element.className="player";
+
+                element.textContent=player.name;
+
+                element.onclick=()=>{
+
+                    openProfile(player);
 
                 };
 
-                players.appendChild(playerElement);
+                playerContainer.appendChild(element);
 
             });
 
         }
 
-        row.appendChild(name);
-        row.appendChild(players);
+
+        row.appendChild(tierName);
+
+        row.appendChild(playerContainer);
 
         container.appendChild(row);
 
@@ -445,39 +715,178 @@ function render() {
 
 }
 
-function changeMode(mode, button) {
 
-    currentMode = mode;
+/*
+==================================================
+CHANGE GAMEMODE
+==================================================
+*/
 
-    document.getElementById("modeTitle").textContent = mode;
+function changeMode(mode,button){
 
-    document.querySelectorAll(".gamemodes button")
-        .forEach(btn => btn.classList.remove("active"));
+    currentMode=mode;
+
+    document
+        .querySelectorAll(".mode")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
     button.classList.add("active");
 
+
+    document.getElementById("title")
+        .textContent =
+        "🏆 "+mode+" Rankings";
+
+
     render();
+
+    searchPlayer();
 
 }
 
-function searchPlayer() {
 
-    const search =
-        document.getElementById("search")
+/*
+==================================================
+SEARCH
+==================================================
+*/
+
+function searchPlayer(){
+
+    const query =
+        document
+        .getElementById("search")
         .value
         .toLowerCase();
 
-    document.querySelectorAll(".player")
-        .forEach(player => {
 
-            player.style.display =
-                player.textContent.toLowerCase().includes(search)
-                ? "block"
-                : "none";
+    document
+        .querySelectorAll(".player")
+        .forEach(player=>{
+
+            if(
+                player.textContent
+                .toLowerCase()
+                .includes(query)
+            ){
+
+                player.style.display="block";
+
+            }else{
+
+                player.style.display="none";
+
+            }
 
         });
 
 }
+
+
+/*
+==================================================
+PROFILE
+==================================================
+*/
+
+function openProfile(player){
+
+    document.getElementById("modal")
+        .style.display="flex";
+
+
+    document.getElementById("profileName")
+        .textContent=player.name;
+
+
+    document.getElementById("avatar")
+        .textContent=
+        player.name.charAt(0).toUpperCase();
+
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML="";
+
+
+    modes.forEach(mode=>{
+
+        const tier =
+            player.results[mode];
+
+
+        if(!tier) return;
+
+
+        const result =
+            document.createElement("div");
+
+        result.className="result";
+
+
+        const modeName =
+            document.createElement("span");
+
+        modeName.textContent=mode;
+
+
+        const tierElement =
+            document.createElement("strong");
+
+        tierElement.textContent=tier;
+
+
+        result.appendChild(modeName);
+
+        result.appendChild(tierElement);
+
+        results.appendChild(result);
+
+    });
+
+}
+
+
+function closeProfile(){
+
+    document.getElementById("modal")
+        .style.display="none";
+
+}
+
+
+/*
+==================================================
+NAVIGATION
+==================================================
+*/
+
+function focusSearch(){
+
+    document
+        .getElementById("search")
+        .focus();
+
+}
+
+function scrollTopPage(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/*
+==================================================
+START
+==================================================
+*/
 
 render();
 
