@@ -3,160 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Velwaves Tier List</title>
+<title>VelwavesTierList</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    background: #09090d;
+    font-family: Arial, sans-serif;
+    background: #08080b;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 header {
+    background: #0e0e13;
+    border-bottom: 1px solid #25252d;
+    padding: 22px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.hero {
     text-align: center;
-    padding: 35px 15px;
+    padding: 55px 20px 35px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #8b5cf6;
+}
+
+.hero p {
+    color: #999;
+    margin-top: 10px;
+}
+
+.controls {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.search {
+    width: 100%;
     background: #111117;
-    border-bottom: 1px solid #292933;
+    border: 1px solid #292933;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 42px;
-    font-weight: 900;
+.gamemodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-header p {
-    color: #888;
-    margin-top: 8px;
+.gamemodes button {
+    background: #121218;
+    color: #aaa;
+    border: 1px solid #292933;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
 }
 
-.container {
-    width: 95%;
-    max-width: 1150px;
-    margin: 35px auto;
+.gamemodes button:hover,
+.gamemodes button.active {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
 }
 
-.gamemode {
-    margin-bottom: 45px;
+.tier-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 60px;
 }
 
-.gamemode-title {
-    font-size: 28px;
-    font-weight: 900;
-    margin-bottom: 14px;
+.mode-title {
+    font-size: 26px;
+    margin-bottom: 15px;
 }
 
 .tier {
     display: flex;
     min-height: 75px;
-    margin-bottom: 7px;
-    background: #15151d;
+    margin-bottom: 8px;
     border: 1px solid #292933;
-    border-radius: 10px;
+    background: #101015;
+    border-radius: 8px;
     overflow: hidden;
 }
 
 .tier-name {
-    width: 100px;
-    min-width: 100px;
+    width: 90px;
+    min-width: 90px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 19px;
+    justify-content: center;
     font-weight: 900;
+    font-size: 17px;
+    color: white;
 }
 
+.ht1 { background: #ff3b3b; }
+.lt1 { background: #ff6666; }
+.ht2 { background: #ff8a00; }
+.lt2 { background: #ffad42; }
+.ht3 { background: #ffd000; color: #111; }
+.lt3 { background: #ffe066; color: #111; }
+.ht4 { background: #4caf50; }
+.lt4 { background: #72d572; }
+.ht5 { background: #2196f3; }
+.lt5 { background: #64b5f6; }
+
 .players {
-    flex: 1;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
+    gap: 9px;
+    padding: 12px;
 }
 
 .player {
-    padding: 12px 18px;
-    background: #20202a;
-    border: 1px solid #363642;
-    border-radius: 8px;
-    font-weight: 800;
+    background: #19191f;
+    border: 1px solid #30303a;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .15s;
 }
 
-/* TIER COLORS */
-
-.ht1 {
-    background: #e53935;
+.player:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-2px);
 }
 
-.lt1 {
-    background: #ef5350;
-}
-
-.ht2 {
-    background: #f57c00;
-}
-
-.lt2 {
-    background: #ff9800;
-}
-
-.ht3 {
-    background: #fbc02d;
-    color: #111;
-}
-
-.lt3 {
-    background: #ffee58;
-    color: #111;
-}
-
-.ht4 {
-    background: #43a047;
-}
-
-.lt4 {
-    background: #66bb6a;
-}
-
-.ht5 {
-    background: #1976d2;
-}
-
-.lt5 {
-    background: #42a5f5;
+.empty {
+    color: #555;
+    font-size: 14px;
 }
 
 footer {
+    border-top: 1px solid #25252d;
     text-align: center;
-    padding: 35px;
+    padding: 25px;
     color: #666;
 }
 
-@media (max-width: 600px) {
-
-    header h1 {
-        font-size: 30px;
+@media(max-width:600px) {
+    header {
+        padding: 18px;
     }
 
-    .gamemode-title {
-        font-size: 23px;
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
     }
 
     .tier-name {
-        width: 75px;
-        min-width: 75px;
-        font-size: 15px;
-    }
-
-    .player {
-        padding: 9px 12px;
+        width: 65px;
+        min-width: 65px;
+        font-size: 13px;
     }
 }
 </style>
@@ -165,198 +211,277 @@ footer {
 <body>
 
 <header>
-    <h1>Velwaves Tier List</h1>
-    <p>Minecraft PvP Rankings</p>
+    <div class="logo">Velwaves<span>TierList</span></div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Rankings</a>
+        <a href="#">Players</a>
+    </nav>
 </header>
 
-<div class="container">
+<section class="hero">
+    <h1>Velwaves<span>TierList</span></h1>
+    <p>Minecraft PvP Rankings</p>
+</section>
 
+<section class="controls">
 
-<!-- ================= SWORD ================= -->
+    <input
+        class="search"
+        id="search"
+        type="text"
+        placeholder="Search player..."
+        oninput="searchPlayer()"
+    >
 
-<div class="gamemode">
+    <div class="gamemodes">
+        <button class="active" onclick="changeMode('Sword', this)">⚔️ Sword</button>
+        <button onclick="changeMode('Axe', this)">🪓 Axe</button>
+        <button onclick="changeMode('Crystal', this)">💎 Crystal</button>
+        <button onclick="changeMode('UHC', this)">🏹 UHC</button>
+        <button onclick="changeMode('NethPot', this)">🧪 NethPot</button>
+        <button onclick="changeMode('DiaPot', this)">🛡️ DiaPot</button>
+        <button onclick="changeMode('Spear', this)">🔱 Spear</button>
+        <button onclick="changeMode('Mace', this)">🔨 Mace</button>
+    </div>
 
-<div class="gamemode-title">⚔️ SWORD</div>
+</section>
 
-<div class="tier">
-<div class="tier-name ht1">HT1</div>
-<div class="players"></div>
-</div>
+<main class="tier-container">
 
-<div class="tier">
-<div class="tier-name lt1">LT1</div>
-<div class="players"></div>
-</div>
+    <h2 class="mode-title" id="modeTitle">⚔️ Sword</h2>
 
-<div class="tier">
-<div class="tier-name ht2">HT2</div>
-<div class="players"></div>
-</div>
+    <div id="tiers"></div>
 
-<div class="tier">
-<div class="tier-name lt2">LT2</div>
-<div class="players"></div>
-</div>
-
-<div class="tier">
-<div class="tier-name ht3">HT3</div>
-<div class="players"></div>
-</div>
-
-<div class="tier">
-<div class="tier-name lt3">LT3</div>
-<div class="players">
-<div class="player">Krufiex</div>
-</div>
-</div>
-
-<div class="tier">
-<div class="tier-name ht4">HT4</div>
-<div class="players"></div>
-</div>
-
-<div class="tier">
-<div class="tier-name lt4">LT4</div>
-<div class="players"></div>
-</div>
-
-<div class="tier">
-<div class="tier-name ht5">HT5</div>
-<div class="players"></div>
-</div>
-
-<div class="tier">
-<div class="tier-name lt5">LT5</div>
-<div class="players"></div>
-</div>
-
-</div>
-
-
-<!-- ================= AXE ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">🪓 AXE</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-
-<!-- ================= UHC ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">💥 UHC</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-
-<!-- ================= NETHPOT ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">🧪 NETHPOT</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-
-<!-- ================= SPEAR MACE ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">🔱 SPEAR MACE</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-
-<!-- ================= DIAPOT ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">🛡️ DIAPOT</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-
-<!-- ================= MACE ================= -->
-
-<div class="gamemode">
-
-<div class="gamemode-title">🔨 MACE</div>
-
-<div class="tier"><div class="tier-name ht1">HT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt1">LT1</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht2">HT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt2">LT2</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht3">HT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt3">LT3</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht4">HT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt4">LT4</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name ht5">HT5</div><div class="players"></div></div>
-<div class="tier"><div class="tier-name lt5">LT5</div><div class="players"></div></div>
-
-</div>
-
-</div>
+</main>
 
 <footer>
-VelwavesTierList • Minecraft PvP Rankings
+    © 2026 VelwavesTierList
 </footer>
+
+<script>
+
+const data = {
+
+Sword: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: ["Krufiex"],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+Axe: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+Crystal: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+UHC: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+NethPot: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+DiaPot: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+Spear: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+},
+
+Mace: {
+    HT1: [],
+    LT1: [],
+    HT2: [],
+    LT2: [],
+    HT3: [],
+    LT3: [],
+    HT4: [],
+    LT4: [],
+    HT5: [],
+    LT5: []
+}
+
+};
+
+let currentMode = "Sword";
+
+const tierOrder = [
+    "HT1",
+    "LT1",
+    "HT2",
+    "LT2",
+    "HT3",
+    "LT3",
+    "HT4",
+    "LT4",
+    "HT5",
+    "LT5"
+];
+
+function render() {
+
+    const container = document.getElementById("tiers");
+
+    container.innerHTML = "";
+
+    tierOrder.forEach(tier => {
+
+        const row = document.createElement("div");
+        row.className = "tier";
+
+        const name = document.createElement("div");
+        name.className = "tier-name " + tier.toLowerCase();
+        name.textContent = tier;
+
+        const players = document.createElement("div");
+        players.className = "players";
+
+        if(data[currentMode][tier].length === 0) {
+
+            const empty = document.createElement("span");
+            empty.className = "empty";
+            empty.textContent = "No players";
+            players.appendChild(empty);
+
+        } else {
+
+            data[currentMode][tier].forEach(player => {
+
+                const playerElement = document.createElement("div");
+
+                playerElement.className = "player";
+
+                playerElement.textContent = player;
+
+                playerElement.onclick = () => {
+
+                    alert(
+                        "Player: " + player +
+                        "\\nGamemode: " + currentMode +
+                        "\\nTier: " + tier
+                    );
+
+                };
+
+                players.appendChild(playerElement);
+
+            });
+
+        }
+
+        row.appendChild(name);
+        row.appendChild(players);
+
+        container.appendChild(row);
+
+    });
+
+}
+
+function changeMode(mode, button) {
+
+    currentMode = mode;
+
+    document.getElementById("modeTitle").textContent = mode;
+
+    document.querySelectorAll(".gamemodes button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    render();
+
+}
+
+function searchPlayer() {
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    document.querySelectorAll(".player")
+        .forEach(player => {
+
+            player.style.display =
+                player.textContent.toLowerCase().includes(search)
+                ? "block"
+                : "none";
+
+        });
+
+}
+
+render();
+
+</script>
 
 </body>
 </html>
